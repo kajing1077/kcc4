@@ -41,7 +41,6 @@
 // const thro = throttle2((a:number) => console.log(a + 1), 1000);
 // for (let i = 10; i < 15; i++) thro(i);   // 11
 
-
 // JS 시간에 작성했던 memoized 함수를 범용성을 고려하여 TS로 작성하시오.
 // function memoized<T extends unknown[]>(cb: (...args: T) => number) {
 //   const cache: Record<string, number> = {};
@@ -82,3 +81,6 @@
 //   await Promise.allSettled([randTime(11), Promise.reject('REJECT'), randTime(33)]),
 //   await promiseAllSettled([randTime(11), Promise.reject('REJECT'), randTime(33)])
 // );
+export function time(cb: () => void) {
+  cb();
+}

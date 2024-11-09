@@ -8,6 +8,7 @@ describe("promiseAll", () => {
   test("일반 값들 처리", async () => {
     const result = await promiseAll([randTime(1), randTime(2), randTime(3)]);
     expect(result).toEqual([1, 2, 3]);
+    expect(result).toEqual(expect.arrayContaining([1, 2]));
   });
 
   test("Promise 값들 처리", async () => {

@@ -30,4 +30,3 @@ for (let i = 10; i < 15; i++) debo(i, "abc"); // 15, 'abc'
 
 const thro = throttle((a: number) => console.log(a + 1), 500);
 for (let i = 10; i < 15; i++) thro(i); // 11 출력
-
