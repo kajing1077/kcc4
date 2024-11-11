@@ -1,27 +1,27 @@
 // debounce와 throttle 함수를 TypeScript로 작성하시오.
 function debounce<T extends unknown[]>(
   fn: (...args: T) => void,
-  delay: number,
+  delay: number
 ) {
   let timer: ReturnType<typeof setTimeout> | null = null;
   return (...args: T) => {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
       fn(...args);
-    }, delay)
+    }, delay);
   };
 }
 
 // function throttle…
 function throttle<T extends unknown[]>(
   fn: (...args: T) => void,
-  delay: number,
+  delay: number
 ) {
   let timer: ReturnType<typeof setTimeout> | null = null;
   return (...args: T) => {
     if (timer) return;
     timer = setTimeout(fn, delay, ...args);
-  }
+  };
 }
 
 // test
