@@ -22,8 +22,7 @@ function LabelInput(
     inputAttrs,
     type = 'text',
     placehoder = `${label}...`,
-    onChange = () => {
-    },
+    onChange = () => {},
     // ref = null,
     classNames = '',
   }: Props,

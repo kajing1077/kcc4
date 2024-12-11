@@ -4,8 +4,8 @@
   "main": "hello.js",
   "scripts": {
     "dev": "ts-node hi.test.ts",
-    "test": "jest"
-  },
+    "test": "jest",
+    
   "keywords": [],
   "author": "",
   "license": "ISC",

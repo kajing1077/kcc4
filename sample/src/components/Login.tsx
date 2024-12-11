@@ -1,9 +1,4 @@
-import {
-  FormEvent,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from 'react';
+import { FormEvent, useEffect, useImperativeHandle, useRef } from 'react';
 import Button from './atoms/Button';
 import LabelInput from './molecules/LabelInput';
 import { useSession } from '../hooks/session-context';
@@ -53,11 +48,11 @@ export default function Login() {
   // }, []);
   useInterval(() => console.log('interval!!!'), 1000);
 
-  const f = (x: number) => {
-    console.log('once!!!', x);
+  const f = () => {
+    console.log('once!!!');
   };
 
-  useTimeout(f, 500, 200);
+  useTimeout(f, 500);
 
   return (
     <>

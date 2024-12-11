@@ -4,7 +4,7 @@ import { useSession } from '../hooks/session-context';
 
 const Profile = forwardRef(
   (_: unknown, ref: ForwardedRef<HTMLButtonElement>) => {
-    const {session, logout} = useSession();
+    const { session, logout } = useSession();
     return (
       <div className='mb-3 border px-5 py-2'>
         <button

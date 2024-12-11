@@ -1,4 +1,10 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useReducer,
+  useState,
+} from 'react';
 // import { flushSync } from 'react-dom';
 
 const contextInitValue = {
@@ -8,22 +14,35 @@ const contextInitValue = {
 };
 
 type CounterContextProps = typeof contextInitValue;
+type Action = {
+  type: 'plus' | 'minus';
+  payload: number;
+};
 
 const CounterContext = createContext<CounterContextProps>(contextInitValue);
 
+const reducer = (count: number, { type, payload }: Action) => {
+  if (type === 'plus') {
+    return count + payload;
+  }
+  if (type === 'minus') {
+    return count - payload;
+  }
+  return count;
+};
+
 export const CounterProvider = ({ children }: PropsWithChildren) => {
-  const [count, setCount] = useState(0);
-  const plusCount = () => {
-    // setCount((pre) => pre + 1);
-    setCount((pre) => {
-      // 여기서 변경된 newer(count)를 사용해야 함!
-      return pre + 1;
-    });
-    // flushSync(() => setCount((c) => c + 1));
-    // setOtherState... ver18.2
-    // console.log('🚀  count:', count, document.getElementById('cnt')?.innerText);
+  // const [count, setCount] = useState(0);
+
+  const [count, dispatch] = useReducer(reducer, 0, () => 0);
+
+  const plusCount = (step: number = 1) => {
+    dispatch({ type: 'plus', payload: step });
   };
-  const minusCount = () => setCount((pre) => pre - 1);
+
+  const minusCount = (step: number = 1) => {
+    dispatch({ type: 'minus', payload: step });
+  };
 
   return (
     <CounterContext.Provider value={{ count, plusCount, minusCount }}>
