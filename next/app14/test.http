@@ -1,0 +1,34 @@
+@host=http://localhost:3000
+# @host=https://dev.mydomain.com
+# @host=https://mydomain.com
+
+
+### GET books
+GET {{host}}/api/books?searchStr=
+
+
+### get a book
+GET {{host}}/api/books/2
+
+### add book
+POST {{host}}/api/books
+
+{
+  "title": "Sample Book",
+  "author": "Jade"
+}
+
+### update book
+PUT {{host}}/api/books/1
+
+{
+  "title": "Updated Book",
+  "author": "Jane"
+}
+
+### remove book 
+DELETE {{host}}/api/books/1
+
+
+### GET ttt
+GET http://localhost:3000/api/ttt?q=123
